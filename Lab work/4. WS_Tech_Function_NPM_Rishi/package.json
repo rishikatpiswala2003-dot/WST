@@ -1,0 +1,14 @@
+{
+  "name": "ws_tech_function_npm_rishi",
+  "version": "1.0.0",
+  "description": "Functions and NPM Lab",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Rishi",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}

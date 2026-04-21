@@ -1,0 +1,41 @@
+'''4. Design a form for online Electricity Bill. Assume suitable fields. Validate the form using Javascript.'''
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Bill Form</title>
+    <script>
+        function validateBill() {
+            let consumerNo = document.getElementById("consumerNo").value.trim();
+            let name = document.getElementById("name").value.trim();
+            let units = document.getElementById("units").value.trim();
+
+            if (consumerNo === "" || name === "" || units === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            if (isNaN(units) || units <= 0) {
+                alert("Enter valid units consumed");
+                return false;
+            }
+
+            alert("Electricity Bill Form Submitted");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Online Electricity Bill Form</h2>
+    <form onsubmit="return validateBill()">
+        Consumer Number: <input type="text" id="consumerNo"><br><br>
+        Consumer Name: <input type="text" id="name"><br><br>
+        Address: <textarea></textarea><br><br>
+        Meter Number: <input type="text"><br><br>
+        Units Consumed: <input type="text" id="units"><br><br>
+        Bill Month: <input type="month"><br><br>
+        <input type="submit" value="Pay Bill">
+    </form>
+</body>
+</html>

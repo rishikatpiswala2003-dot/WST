@@ -1,0 +1,12 @@
+{
+  "name": "ws_tech_npm_modules_rishi",
+  "version": "1.0.0",
+  "description": "NPM and Modules Lab",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}

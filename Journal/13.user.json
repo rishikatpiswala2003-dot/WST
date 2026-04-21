@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Rishi",
+    "age": 22,
+    "skills": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "name": "Amit",
+    "age": 23,
+    "skills": ["Node.js", "MongoDB"]
+  },
+  {
+    "name": "Sneha",
+    "age": 21,
+    "skills": ["Python", "SQL"]
+  }
+]

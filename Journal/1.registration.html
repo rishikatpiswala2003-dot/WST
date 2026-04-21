@@ -1,0 +1,56 @@
+'''1. Create a student Registration form for Job Application. Assume various fields. Validate the form fields using JavaScript.'''
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let mobile = document.getElementById("mobile").value.trim();
+            let qualification = document.getElementById("qualification").value.trim();
+            let address = document.getElementById("address").value.trim();
+
+            if (name === "" || email === "" || mobile === "" || qualification === "" || address === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Enter valid email");
+                return false;
+            }
+
+            let mobilePattern = /^[0-9]{10}$/;
+            if (!mobile.match(mobilePattern)) {
+                alert("Mobile number must be 10 digits");
+                return false;
+            }
+
+            alert("Registration Successful");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Student Registration Form for Job Application</h2>
+    <form onsubmit="return validateForm()">
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        Mobile: <input type="text" id="mobile"><br><br>
+        Qualification: <input type="text" id="qualification"><br><br>
+        Address: <textarea id="address"></textarea><br><br>
+        Gender:
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female<br><br>
+        Skills:
+        <input type="checkbox"> HTML
+        <input type="checkbox"> CSS
+        <input type="checkbox"> JavaScript<br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

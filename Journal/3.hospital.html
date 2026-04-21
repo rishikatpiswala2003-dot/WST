@@ -1,0 +1,72 @@
+'''3. Design patient admission form for Hospital having fields like patient ID, patient name, address, city, Adhar ID, contact no., email id, blood group, date of birth (calendar), age (to be derived) etc. Also Validate the form using Javascript.
+'''
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Admission Form</title>
+    <script>
+        function calculateAge() {
+            let dob = document.getElementById("dob").value;
+            if (dob === "") return;
+            let birthDate = new Date(dob);
+            let today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            let m = today.getMonth() - birthDate.getMonth();
+
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            document.getElementById("age").value = age;
+        }
+
+        function validateForm() {
+            let patientId = document.getElementById("patientId").value.trim();
+            let patientName = document.getElementById("patientName").value.trim();
+            let aadhar = document.getElementById("aadhar").value.trim();
+            let contact = document.getElementById("contact").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (patientId === "" || patientName === "" || aadhar === "" || contact === "" || email === "") {
+                alert("All required fields must be filled");
+                return false;
+            }
+
+            if (!/^[0-9]{12}$/.test(aadhar)) {
+                alert("Aadhar ID must be 12 digits");
+                return false;
+            }
+
+            if (!/^[0-9]{10}$/.test(contact)) {
+                alert("Contact number must be 10 digits");
+                return false;
+            }
+
+            alert("Patient Admission Form Submitted Successfully");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Hospital Patient Admission Form</h2>
+    <form onsubmit="return validateForm()">
+        Patient ID: <input type="text" id="patientId"><br><br>
+        Patient Name: <input type="text" id="patientName"><br><br>
+        Address: <textarea></textarea><br><br>
+        City: <input type="text"><br><br>
+        Aadhar ID: <input type="text" id="aadhar"><br><br>
+        Contact No: <input type="text" id="contact"><br><br>
+        Email ID: <input type="text" id="email"><br><br>
+        Blood Group:
+        <select>
+            <option>A+</option>
+            <option>B+</option>
+            <option>O+</option>
+            <option>AB+</option>
+        </select><br><br>
+        Date of Birth: <input type="date" id="dob" onchange="calculateAge()"><br><br>
+        Age: <input type="text" id="age" readonly><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
